@@ -47,7 +47,6 @@
 				</form>
 				<?php if(isset($_GET['room'])){?>
 				<form method="get" class="room-name-form">
-					<legend>Select a Room</legend>
 					<label> room name: <input type="text" name="room" value="<?php echo $_GET['room']?>" class="input">
 					</label>
 					<button type="submit">load room</button>
