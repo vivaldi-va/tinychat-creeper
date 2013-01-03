@@ -284,15 +284,23 @@ header form
 .user-box .avatar
 {
 	width: 100%;
+	height: 240px;
 	margin: 0 0 1rem;
 }
 
-.user-box .avatar img
+.user-box .avatar img.visible 
 {
-	display: block;
-	min-width: 320px;
-	max-width: 100%;
-	margin: 0 auto;
+    opacity: 1;
+}
+
+.user-box .avatar img 
+{
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in 0s;
 }
 
 .loading-animation

@@ -57,7 +57,7 @@
 			
 			<?php if($session->loggedIn){
 				global $application;
-				$roomInfoArray = $application->getRoomInfo();
+				$roomInfoArray = $application->getRoomInfo(true);
 				?>
 				<?php if(!isset($_GET['room'])){?>
 					<div class="row-fluid">
@@ -96,17 +96,18 @@
 								asort($roomInfoArray['pic']);
 								foreach($roomInfoArray['pic'] AS $key => $value)
 								{
-									?>
-							<?php if(!empty($value)){?>
-							<article class="user-box">
-								<div class="avatar">
-									<img src="<?php echo $value;?>">
-								</div>
-					
-								<span class="name"><?php echo $roomInfoArray['names'][$key];?> </span>
-							</article>
-							<?php }?>
-							<?php
+									if(!empty($value)){?>
+									<article class="user-box">
+										<div class="avatar">
+											<img class="visible" src="<?php echo $value[0];?>">
+											<img src="<?php echo $value[1];?>">
+											<img src="<?php echo $value[2];?>">
+											<img src="<?php echo $value[3];?>">
+										</div>
+							
+										<span class="name"><?php echo $roomInfoArray['names'][$key];?> </span>
+									</article>
+							<?php }
 								}
 							}
 							?>

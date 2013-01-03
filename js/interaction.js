@@ -2,7 +2,7 @@ function loadingAnimation(stop)
 {
 	if(stop)
 	{
-		$("body").append("<div class=\"loading-animation\"><img src=\"./img/loading.png\" alt=\"loading animation\"></div>")
+		$("body").append("<div class=\"loading-animation\"><img src=\"./img/loading.png\" alt=\"loading animation\"></div>");
 	}
 	else
 	{
@@ -10,17 +10,20 @@ function loadingAnimation(stop)
 	}
 }
 
-$(document).ready(function(){
-	
-	$.fn.preload = function() {
-	    this.each(function(){
-	        $('<img/>')[0].src = this;
-	    });
+$(document).ready(function() 
+{
+
+	$.fn.preload = function() 
+	{
+		this.each(function() {
+			$('<img/>')[0].src = this;
+		});
 	}
 
 	// Usage:
 
 	$(['./img/loading.png']).preload();
+	
 	
 	$(".room-name-form").submit(function(e){
 		e.preventDefault();
@@ -33,4 +36,15 @@ $(document).ready(function(){
 			$("body").html(data);
 		});
 	});
+	
+	
 });
+
+var togglePic = function() {
+	$(".userbox").each(function()
+	{
+		$(".avatar img.visible").removeClass().next().add(".avatar img:first")
+		.last().addClass("visible");
+	});
+}
+setInterval(togglePic, 1000);
